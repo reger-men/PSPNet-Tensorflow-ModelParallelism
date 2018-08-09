@@ -71,7 +71,7 @@ class PSPNet101(Network):
                  .batch_normalization(relu=False, name='conv3_1_1x1_increase_bn'))
 
         #Second sequence
-        #with tf.device('/gpu:1'):
+        with tf.device('/gpu:1'):
             (self.feed('conv3_1_1x1_proj_bn', 'conv3_1_1x1_increase_bn')
                  .add(name='conv3_1')
                  .relu(name='conv3_1/relu')
@@ -231,7 +231,7 @@ class PSPNet101(Network):
                  .batch_normalization(relu=False, name='conv4_11_1x1_increase_bn'))
 
         #third sequence
-        #with tf.device('/gpu:2'):
+        with tf.device('/gpu:2'):
             (self.feed('conv4_10/relu', 'conv4_11_1x1_increase_bn')
                  .add(name='conv4_11')
                  .relu(name='conv4_11/relu')
