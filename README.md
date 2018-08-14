@@ -24,3 +24,6 @@ On GPU:0                |  On GPU:0 and 1
 On GPU:0, 1 and 2                |  On GPU:0, 1, 2 and 3
 :-------------------------:|:-------------------------:
 ![](https://github.com/reger-men/PSPNet-Tensorflow-ModelParallelism/blob/master/screenshots/gpu012.png)  |  ![](https://github.com/reger-men/PSPNet-Tensorflow-ModelParallelism/blob/master/screenshots/gpu0123.png)
+
+### Issue URL
+https://github.com/tensorflow/tensorflow/issues/21522
