@@ -124,7 +124,7 @@ def main():
     
     raw_output = net.layers['conv6']
 
-    with tf.device('/cpu:0'):
+    with tf.device('/gpu:1'):
         # According from the prototxt in Caffe implement, learning rate must multiply by 10.0 in pyramid module
         fc_list = ['conv5_3_pool1_conv', 'conv5_3_pool2_conv', 'conv5_3_pool3_conv', 'conv5_3_pool6_conv', 'conv6', 'conv5_4']
         restore_var = [v for v in tf.global_variables()]
