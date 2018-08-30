@@ -120,11 +120,11 @@ def main():
             coord)
         image_batch, label_batch = reader.dequeue(args.batch_size)
     
-    net = PSPNet50({'data': image_batch}, is_training=True, num_classes=args.num_classes)
+    net = PSPNet101({'data': image_batch}, is_training=True, num_classes=args.num_classes)
     
     raw_output = net.layers['conv6']
 
-    with tf.device('/gpu:1'):
+    with tf.device('/cpu:0'):
         # According from the prototxt in Caffe implement, learning rate must multiply by 10.0 in pyramid module
         fc_list = ['conv5_3_pool1_conv', 'conv5_3_pool2_conv', 'conv5_3_pool3_conv', 'conv5_3_pool6_conv', 'conv6', 'conv5_4']
         restore_var = [v for v in tf.global_variables()]
