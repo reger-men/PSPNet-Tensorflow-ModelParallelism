@@ -12,7 +12,7 @@ import time
 import tensorflow as tf
 import numpy as np
 
-from model import PSPNet101
+from model import PSPNet101, PSPNet50
 from tools import prepare_label
 from image_reader import ImageReader
 
@@ -120,7 +120,7 @@ def main():
             coord)
         image_batch, label_batch = reader.dequeue(args.batch_size)
     
-    net = PSPNet101({'data': image_batch}, is_training=True, num_classes=args.num_classes)
+    net = PSPNet50({'data': image_batch}, is_training=True, num_classes=args.num_classes)
     
     raw_output = net.layers['conv6']
 
